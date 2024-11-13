@@ -10,6 +10,8 @@ document.getElementById("login__form").addEventListener("submit", async (e) => {
 	const formData = new FormData(form);
 	const data = Object.fromEntries(formData);
 
+	console.log(data);
+
 	fetch(`${linkDesploy}/login`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },

@@ -8,6 +8,7 @@ document.getElementById("signup__form").addEventListener("submit", async (e) => 
 	const form = e.target;
 	const formData = new FormData(form);
 	const data = Object.fromEntries(formData);
+	console.log(data);
 
 	fetch(`${linkDesploy}/validar`, {
 		method: "POST",
