@@ -1,4 +1,4 @@
-const linkDesploy = process.env.LINK_DESPLOY;
+const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
 
 const modal = document.getElementById("signup__modal");
 const buttonCloseModal = document.getElementById("button__modal--signup");

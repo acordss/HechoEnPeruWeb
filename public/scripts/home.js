@@ -1,4 +1,4 @@
-const linkDesploy = process.env.LINK_DESPLOY;
+const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
 
 window.addEventListener("load", (e) => {
 	fetch(`${linkDesploy}/session`, {

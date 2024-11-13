@@ -1,4 +1,4 @@
-const linkDesploy = process.env.LINK_DESPLOY;
+const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
 
 const btnCart = document.querySelector(".container-cart-icon");
 const containerCartProducts = document.querySelector(".container-cart-products");
