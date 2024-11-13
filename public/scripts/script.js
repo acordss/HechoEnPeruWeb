@@ -145,7 +145,6 @@ rowInfo.addEventListener("click", async (e) => {
 				}
 				return fetch(`${linkDesploy}/carrito`, {
 					method: "GET",
-					mode: "no-cors",
 				});
 			})
 			.then((res) => res.json())

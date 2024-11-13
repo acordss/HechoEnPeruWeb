@@ -18,6 +18,14 @@ dotenv.config({ path: "./env/.env" });
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
+	cors({
+		origin: "*", // Acepta cualquier origen
+		methods: ["GET", "POST", "PUT", "DELETE"],
+		allowedHeaders: ["Content-Type", "Authorization"],
+	})
+);
+
+app.use(
 	session({
 		secret: process.env.SESSION_SECRET,
 		resave: false,

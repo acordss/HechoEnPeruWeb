@@ -13,7 +13,6 @@ document.getElementById("signup__form").addEventListener("submit", async (e) => 
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),
-		mode: "no-cors",
 	})
 		.then(async (res) => {
 			if (!res.ok) {

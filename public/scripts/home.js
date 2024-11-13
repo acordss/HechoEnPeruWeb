@@ -4,7 +4,6 @@ window.addEventListener("load", (e) => {
 	fetch(`${linkDesploy}/session`, {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
-		mode: "no-cors",
 	})
 		.then((res) => res.json())
 		.then((q) => {
