@@ -2,18 +2,19 @@
 	"version": 2,
 	"builds": [
 		{
-			"src": "app.js",
-			"use": "@vercel/node"
+			"src": "pages/**/*",
+			"use": "@vercel/next"
 		}
 	],
-	"routes": [
+	"headers": [
 		{
-			"src": "/public/(.*)",
-			"dest": "/public/$1"
-		},
-		{
-			"src": "/(.*)",
-			"dest": "/app.js"
+			"source": "/(.*)",
+			"headers": [
+				{
+					"key": "Content-Security-Policy",
+					"value": "default-src 'self'; script-src 'self' https://vercel.live;"
+				}
+			]
 		}
 	]
 }
