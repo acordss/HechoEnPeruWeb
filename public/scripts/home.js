@@ -4,6 +4,7 @@ window.addEventListener("load", (e) => {
 	fetch(`${linkDesploy}/session`, {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
+		mode: "no-cors",
 	})
 		.then((res) => res.json())
 		.then((q) => {
@@ -18,6 +19,7 @@ document.getElementById("logout__session").addEventListener("click", async (e) =
 	fetch(`${linkDesploy}/logout`, {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
+		mode: "no-cors",
 	});
 
 	setTimeout(() => {

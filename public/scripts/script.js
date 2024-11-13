@@ -62,6 +62,7 @@ const showHTML = () => {
 window.addEventListener("DOMContentLoaded", (e) => {
 	fetch(`${linkDesploy}/carrito`, {
 		method: "GET",
+		mode: "no-cors",
 	})
 		.then((res) => res.json())
 		.then((data) => {
@@ -77,6 +78,7 @@ btnCart.addEventListener("click", (e) => {
 	if (!containerCartProducts.classList.contains("hidden-cart")) {
 		fetch(`${linkDesploy}/carrito`, {
 			method: "GET",
+			mode: "no-cors",
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -102,6 +104,7 @@ productList.addEventListener("click", async (e) => {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
+			mode: "no-cors",
 		})
 			.then(async (res) => {
 				if (!res.ok) {
@@ -110,6 +113,7 @@ productList.addEventListener("click", async (e) => {
 				}
 				return fetch(`${linkDesploy}/carrito`, {
 					method: "GET",
+					mode: "no-cors",
 				});
 			})
 			.then((res) => res.json())
@@ -132,6 +136,7 @@ rowInfo.addEventListener("click", async (e) => {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
+			mode: "no-cors",
 		})
 			.then(async (res) => {
 				if (!res.ok) {
@@ -140,6 +145,7 @@ rowInfo.addEventListener("click", async (e) => {
 				}
 				return fetch(`${linkDesploy}/carrito`, {
 					method: "GET",
+					mode: "no-cors",
 				});
 			})
 			.then((res) => res.json())

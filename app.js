@@ -13,16 +13,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
-app.use(
-	cors({
-		origin: `"${linkDesploy}"`, // Aquí el valor debe ser una cadena de texto, no entre comillas
-		methods: ["GET", "POST"],
-		allowedHeaders: ["Content-Type", "Authorization"],
-	})
-);
-
-app.use(cors({ origin: "*", methods: ["GET", "POST"], allowedHeaders: ["Content-Type", "Authorization"] }));
-
 dotenv.config({ path: "./env/.env" });
 
 app.use(express.static(path.join(__dirname, "public")));
