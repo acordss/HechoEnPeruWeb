@@ -15,17 +15,13 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
 	cors({
-		origin: linkDesploy, // El dominio de tu frontend
-		methods: ["GET", "POST"], // Métodos permitidos
-		allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
+		origin: `"${linkDesploy}"`, // Aquí el valor debe ser una cadena de texto, no entre comillas
+		methods: ["GET", "POST"],
+		allowedHeaders: ["Content-Type", "Authorization"],
 	})
 );
 
-app.use(
-	cors({
-		origin: "*", // Permite cualquier dominio (recomendado solo en desarrollo)
-	})
-);
+app.use(cors({ origin: "*", methods: ["GET", "POST"], allowedHeaders: ["Content-Type", "Authorization"] }));
 
 dotenv.config({ path: "./env/.env" });
 
