@@ -1,5 +1,5 @@
 window.addEventListener("load", (e) => {
-	fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/session", {
+	fetch("/session", {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
 	})
@@ -13,7 +13,7 @@ window.addEventListener("load", (e) => {
 
 document.getElementById("logout__session").addEventListener("click", async (e) => {
 	e.preventDefault();
-	fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/logout", {
+	fetch("/logout", {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
 	});

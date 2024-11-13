@@ -7,7 +7,7 @@ document.getElementById("signup__form").addEventListener("submit", async (e) => 
 	const formData = new FormData(form);
 	const data = Object.fromEntries(formData);
 
-	fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/validar", {
+	fetch("/validar", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),

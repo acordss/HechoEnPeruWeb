@@ -58,7 +58,7 @@ const showHTML = () => {
 };
 
 window.addEventListener("DOMContentLoaded", (e) => {
-	fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/carrito", {
+	fetch("/carrito", {
 		method: "GET",
 	})
 		.then((res) => res.json())
@@ -73,7 +73,7 @@ btnCart.addEventListener("click", (e) => {
 	console.log(containerCartProducts);
 
 	if (!containerCartProducts.classList.contains("hidden-cart")) {
-		fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/carrito", {
+		fetch("/carrito", {
 			method: "GET",
 		})
 			.then((res) => res.json())
@@ -96,7 +96,7 @@ productList.addEventListener("click", async (e) => {
 
 		console.log(infoProduct);
 
-		fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/carrito", {
+		fetch("/carrito", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
@@ -106,7 +106,7 @@ productList.addEventListener("click", async (e) => {
 					const errorData = await res.json();
 					throw new Error(errorData.message || "Error desconocido");
 				}
-				return fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/carrito", {
+				return fetch("/carrito", {
 					method: "GET",
 				});
 			})
@@ -126,7 +126,7 @@ rowInfo.addEventListener("click", async (e) => {
 			titulo: product.querySelector("p").textContent,
 		};
 
-		fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/carrito/eliminar", {
+		fetch("/carrito/eliminar", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
@@ -136,7 +136,7 @@ rowInfo.addEventListener("click", async (e) => {
 					const errorData = await res.json();
 					throw new Error(errorData.message || "Error desconocido");
 				}
-				return fetch("https://hecho-en-peru-4fn1tozy6-accordss-projects.vercel.app/carrito", {
+				return fetch("/carrito", {
 					method: "GET",
 				});
 			})
