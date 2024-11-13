@@ -33,13 +33,11 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "index.html"));
 });
 
-const port = 5500;
+const port = process.env.PORT || 5500;
 
 app.listen(port, function () {
 	console.log(`Servidor creado en http://localhost:${port}`);
 });
-
-module.exports = app;
 
 //Registro
 app.post("/validar", async function (req, res) {
@@ -338,3 +336,5 @@ app.get("/carrito", (req, res) => {
 		}
 	);
 });
+
+module.exports = app;
