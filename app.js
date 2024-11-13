@@ -39,6 +39,8 @@ app.listen(port, function () {
 	console.log(`Servidor creado en http://localhost:${port}`);
 });
 
+module.exports = app;
+
 //Registro
 app.post("/validar", async function (req, res) {
 	const datos = req.body;
