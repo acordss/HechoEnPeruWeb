@@ -32,10 +32,10 @@ app.get("/", (req, res) => {
 	res.sendFile(path.join(__dirname, "public", "views", "index.html"));
 });
 
-const PORT = process.env.PORT || 5500;
+const port = process.env.PORT || 3000;
 
-app.listen(PORT, function () {
-	console.log(`Servidor creado en http://localhost:${PORT}`);
+app.listen(port, function () {
+	console.log(`Servidor creado en http://localhost:${port}`);
 });
 
 //Registro
