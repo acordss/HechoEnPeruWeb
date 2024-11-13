@@ -340,5 +340,3 @@ app.get("/carrito", (req, res) => {
 		}
 	);
 });
-
-module.exports = app;
