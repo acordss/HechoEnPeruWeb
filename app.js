@@ -10,6 +10,22 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+const cors = require("cors");
+
+app.use(
+	cors({
+		origin: "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app", // El dominio de tu frontend
+		methods: ["GET", "POST"], // Métodos permitidos
+		allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
+	})
+);
+
+app.use(
+	cors({
+		origin: "*", // Permite cualquier dominio (recomendado solo en desarrollo)
+	})
+);
+
 dotenv.config({ path: "./env/.env" });
 
 app.use(express.static(path.join(__dirname, "public")));
