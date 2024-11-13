@@ -1,5 +1,3 @@
-const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
-
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -8,14 +6,7 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const bcryptjs = require("bcryptjs");
 
-app.use(
-	cors({
-		origin: "*", // Acepta cualquier origen
-		methods: ["GET", "POST", "PUT", "DELETE"],
-		allowedHeaders: ["Content-Type", "Authorization"],
-	})
-);
-app.options("*", cors()); // Permite las solicitudes OPTIONS para todos los orígenes
+app.use(cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
