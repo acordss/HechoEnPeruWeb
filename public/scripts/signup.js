@@ -1,5 +1,3 @@
-const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
-
 const modal = document.getElementById("signup__modal");
 const buttonCloseModal = document.getElementById("button__modal--signup");
 
@@ -10,7 +8,7 @@ document.getElementById("signup__form").addEventListener("submit", async (e) => 
 	const data = Object.fromEntries(formData);
 	console.log(data);
 
-	fetch(`${linkDesploy}/validar`, {
+	fetch("/validar", {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),

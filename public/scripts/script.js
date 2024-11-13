@@ -1,5 +1,3 @@
-const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
-
 const btnCart = document.querySelector(".container-cart-icon");
 const containerCartProducts = document.querySelector(".container-cart-products");
 const cartInfo = document.querySelector(".cart.product");
@@ -60,9 +58,8 @@ const showHTML = () => {
 };
 
 window.addEventListener("DOMContentLoaded", (e) => {
-	fetch(`${linkDesploy}/carrito`, {
+	fetch("/carrito", {
 		method: "GET",
-		mode: "no-cors",
 	})
 		.then((res) => res.json())
 		.then((data) => {
@@ -76,9 +73,8 @@ btnCart.addEventListener("click", (e) => {
 	console.log(containerCartProducts);
 
 	if (!containerCartProducts.classList.contains("hidden-cart")) {
-		fetch(`${linkDesploy}/carrito`, {
+		fetch("/carrito", {
 			method: "GET",
-			mode: "no-cors",
 		})
 			.then((res) => res.json())
 			.then((data) => {
@@ -100,20 +96,18 @@ productList.addEventListener("click", async (e) => {
 
 		console.log(infoProduct);
 
-		fetch(`${linkDesploy}/carrito`, {
+		fetch("/carrito", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
-			mode: "no-cors",
 		})
 			.then(async (res) => {
 				if (!res.ok) {
 					const errorData = await res.json();
 					throw new Error(errorData.message || "Error desconocido");
 				}
-				return fetch(`${linkDesploy}/carrito`, {
+				return fetch("/carrito", {
 					method: "GET",
-					mode: "no-cors",
 				});
 			})
 			.then((res) => res.json())
@@ -132,18 +126,17 @@ rowInfo.addEventListener("click", async (e) => {
 			titulo: product.querySelector("p").textContent,
 		};
 
-		fetch(`${linkDesploy}/carrito/eliminar`, {
+		fetch("/carrito/eliminar", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
-			mode: "no-cors",
 		})
 			.then(async (res) => {
 				if (!res.ok) {
 					const errorData = await res.json();
 					throw new Error(errorData.message || "Error desconocido");
 				}
-				return fetch(`${linkDesploy}/carrito`, {
+				return fetch("/carrito", {
 					method: "GET",
 				});
 			})

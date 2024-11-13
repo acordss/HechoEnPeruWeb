@@ -1,7 +1,5 @@
-const linkDesploy = "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app";
-
 window.addEventListener("load", (e) => {
-	fetch(`${linkDesploy}/session`, {
+	fetch("/session", {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
 	})
@@ -15,10 +13,9 @@ window.addEventListener("load", (e) => {
 
 document.getElementById("logout__session").addEventListener("click", async (e) => {
 	e.preventDefault();
-	fetch(`${linkDesploy}/logout`, {
+	fetch("/logout", {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
-		mode: "no-cors",
 	});
 
 	setTimeout(() => {
