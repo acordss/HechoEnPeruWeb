@@ -15,6 +15,16 @@ dotenv.config({ path: "./env/.env" });
 
 app.use(express.static(path.join(__dirname, "public")));
 
+app.get("/", (req, res) => {
+	res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+const port = process.env.PORT || 5500;
+
+app.listen(port, function () {
+	console.log(`Servidor creado en http://localhost:${port}`);
+});
+
 app.use(
 	session({
 		secret: process.env.SESSION_SECRET,
@@ -28,16 +38,6 @@ app.use(
 	})
 );
 const connection = require("./database/db");
-
-app.get("/", (req, res) => {
-	res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-const port = process.env.PORT || 5500;
-
-app.listen(port, function () {
-	console.log(`Servidor creado en http://localhost:${port}`);
-});
 
 //Registro
 app.post("/validar", async function (req, res) {
