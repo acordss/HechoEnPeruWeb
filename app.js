@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use(
 	cors({
-		origin: `"${linkDesploy}"`, // El dominio de tu frontend
+		origin: linkDesploy, // El dominio de tu frontend
 		methods: ["GET", "POST"], // Métodos permitidos
 		allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
 	})

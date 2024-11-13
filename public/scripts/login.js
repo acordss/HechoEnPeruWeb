@@ -36,7 +36,7 @@ document.getElementById("login__form").addEventListener("submit", async (e) => {
 				modal.showModal();
 
 				setTimeout(() => {
-					window.location.href = "/views/private/home.html"; // Cambia "/ruta-exito" por la URL de destino
+					window.location.href = "/views/private/home.html";
 				}, 2000);
 			} else {
 				modal__title.innerHTML = "Error en el inicio de sesión";
