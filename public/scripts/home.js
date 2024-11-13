@@ -1,5 +1,7 @@
+const linkDesploy = process.env.LINK_DESPLOY;
+
 window.addEventListener("load", (e) => {
-	fetch("/session", {
+	fetch(`${linkDesploy}/session`, {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
 	})
@@ -13,7 +15,7 @@ window.addEventListener("load", (e) => {
 
 document.getElementById("logout__session").addEventListener("click", async (e) => {
 	e.preventDefault();
-	fetch("/logout", {
+	fetch(`${linkDesploy}/logout`, {
 		method: "GET",
 		headers: { "Content-Type": "application/json" },
 	});

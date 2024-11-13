@@ -1,3 +1,5 @@
+const linkDesploy = process.env.LINK_DESPLOY;
+
 const express = require("express");
 const app = express();
 const path = require("path");
@@ -13,7 +15,7 @@ const cors = require("cors");
 
 app.use(
 	cors({
-		origin: "https://hecho-en-peru-8n034rrxm-accordss-projects.vercel.app", // El dominio de tu frontend
+		origin: `"${linkDesploy}"`, // El dominio de tu frontend
 		methods: ["GET", "POST"], // Métodos permitidos
 		allowedHeaders: ["Content-Type", "Authorization"], // Encabezados permitidos
 	})

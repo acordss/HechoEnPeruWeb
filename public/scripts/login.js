@@ -1,3 +1,5 @@
+const linkDesploy = process.env.LINK_DESPLOY;
+
 const modal = document.getElementById("signup__modal");
 const buttonCloseModal = document.getElementById("button__modal--signup");
 
@@ -8,7 +10,7 @@ document.getElementById("login__form").addEventListener("submit", async (e) => {
 	const formData = new FormData(form);
 	const data = Object.fromEntries(formData);
 
-	fetch("/login", {
+	fetch(`${linkDesploy}/login`, {
 		method: "POST",
 		headers: { "Content-Type": "application/json" },
 		body: JSON.stringify(data),

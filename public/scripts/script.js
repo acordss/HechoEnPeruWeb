@@ -1,3 +1,5 @@
+const linkDesploy = process.env.LINK_DESPLOY;
+
 const btnCart = document.querySelector(".container-cart-icon");
 const containerCartProducts = document.querySelector(".container-cart-products");
 const cartInfo = document.querySelector(".cart.product");
@@ -58,7 +60,7 @@ const showHTML = () => {
 };
 
 window.addEventListener("DOMContentLoaded", (e) => {
-	fetch("/carrito", {
+	fetch(`${linkDesploy}/carrito`, {
 		method: "GET",
 	})
 		.then((res) => res.json())
@@ -73,7 +75,7 @@ btnCart.addEventListener("click", (e) => {
 	console.log(containerCartProducts);
 
 	if (!containerCartProducts.classList.contains("hidden-cart")) {
-		fetch("/carrito", {
+		fetch(`${linkDesploy}/carrito`, {
 			method: "GET",
 		})
 			.then((res) => res.json())
@@ -96,7 +98,7 @@ productList.addEventListener("click", async (e) => {
 
 		console.log(infoProduct);
 
-		fetch("/carrito", {
+		fetch(`${linkDesploy}/carrito`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
@@ -106,7 +108,7 @@ productList.addEventListener("click", async (e) => {
 					const errorData = await res.json();
 					throw new Error(errorData.message || "Error desconocido");
 				}
-				return fetch("/carrito", {
+				return fetch(`${linkDesploy}/carrito`, {
 					method: "GET",
 				});
 			})
@@ -126,7 +128,7 @@ rowInfo.addEventListener("click", async (e) => {
 			titulo: product.querySelector("p").textContent,
 		};
 
-		fetch("/carrito/eliminar", {
+		fetch(`${linkDesploy}/carrito/eliminar`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
 			body: JSON.stringify(infoProduct),
@@ -136,7 +138,7 @@ rowInfo.addEventListener("click", async (e) => {
 					const errorData = await res.json();
 					throw new Error(errorData.message || "Error desconocido");
 				}
-				return fetch("/carrito", {
+				return fetch(`${linkDesploy}/carrito`, {
 					method: "GET",
 				});
 			})
