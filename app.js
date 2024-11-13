@@ -8,15 +8,6 @@ const dotenv = require("dotenv");
 const session = require("express-session");
 const bcryptjs = require("bcryptjs");
 
-app.use(cors());
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-
-dotenv.config({ path: "./env/.env" });
-
-app.use(express.static(path.join(__dirname, "public")));
-
 app.use(
 	cors({
 		origin: "*", // Acepta cualquier origen
@@ -24,6 +15,14 @@ app.use(
 		allowedHeaders: ["Content-Type", "Authorization"],
 	})
 );
+app.options("*", cors()); // Permite las solicitudes OPTIONS para todos los orígenes
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
+dotenv.config({ path: "./env/.env" });
+
+app.use(express.static(path.join(__dirname, "public")));
 
 app.use(
 	session({
